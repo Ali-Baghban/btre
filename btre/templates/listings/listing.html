@@ -1,0 +1,193 @@
+{% extends 'base.html' %} 
+{% load static %}   
+{% load humanize %}
+{% block content %}
+<!-- Single Property Section Begin -->
+    <div class="single-property">
+        <div class="container">
+            <div class="row spad-p">
+                <div class="col-lg-12">
+                    <div class="property-title">
+                        <h3>{{ listing.title }}</h3>
+                        <a href="#"><i class="fa flaticon-placeholder"></i> {{ listing.city }}, {{ listing.address }}</a>
+                    </div>
+                    <div class="property-price">
+                        <p>For Sale</p>
+                        <span>| {{ listing.price | intcomma }} |</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="property-img owl-carousel" >
+                        <div class="single-img" style="width: 100%; height:400px;">
+                            <img src="{{ listing.photo_main.url }}"  >
+                        </div>
+                        {% if listing.photo_1 %}
+                        <div class="single-img">
+                            <img src="{{ listing.photo_1.url }}" alt="">
+                        </div>
+                        {% endif %}
+                        {% if listing.photo_2 %}
+                        <div class="single-img">
+                            <img src="{{ listing.photo_2.url }}" alt="">
+                        </div>
+                        {% endif %}
+                        {% if listing.photo_3 %}
+                        <div class="single-img">
+                            <img src="{{ listing.photo_3.url }}" alt="">
+                        </div>
+                        {% endif %}
+                        {% if listing.photo_4 %}
+                        <div class="single-img">
+                            <img src="{{ listing.photo_4.url }}" alt="">
+                        </div>
+                        {% endif %}
+                        {% if listing.photo_5 %}
+                        <div class="single-img">
+                            <img src="{{ listing.photo_5.url }}" alt="">
+                        </div>
+                        {% endif %}
+                        {% if listing.photo_6 %}
+                        <div class="single-img">
+                            <img src="{{ listing.photo_6.url }}" alt="">
+                        </div>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Single Property End -->
+    <!-- Single Property Deatails Section Begin -->
+    <section class="property-details">
+        <div class="container">
+            <div class="row sp-40 spt-40">
+                <div class="col-lg-8">
+                    <div class="p-ins">
+                        <div class="row details-top">
+                            <div class="col-lg-12">
+                                <div class="t-details">
+                                    <div class="register-id">
+                                        <p>Registered ID: <span>0D0FF1{{ listing.id }}</span></p>
+                                    </div>
+                                    <div class="popular-room-features single-property">
+                                        <div class="size">
+                                            <p>Lot Size</p>
+                                            <img src="{% static 'img/rooms/size.png' %}" alt="">
+                                            <i class="flaticon-bath"></i>
+                                            <span>{{ listing.sqft }}</span>
+                                        </div>
+                                        <div class="beds">
+                                            <p>Beds</p>
+                                            <img src="{% static 'img/rooms/bed.png' %}" alt="">
+                                            <span>{{ listing.bedrooms }}</span>
+                                        </div>
+                                        <div class="baths">
+                                            <p>Baths</p>
+                                            <img src="{% static 'img/rooms/bath.png' %}" alt="">
+                                            <span>{{ listings.bathrooms }}</span>
+                                        </div>
+                                        <div class="garage">
+                                            <p>Garage</p>
+                                            <img src="{% static 'img/rooms/garage.png' %}" alt="">
+                                            <span>{{ listing.garage }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="property-description">
+                                    <h4>Description</h4>
+                                    <p>{{ listing.description}}</p>
+                                </div>
+                                
+                                <div class="location-map">
+                                    <h4>Location</h4>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107002.020096289!2d-96.80666618302782!3d33.06138629992991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c21da13c59513%3A0x62aa036489cd602b!2sPlano%2C+TX%2C+USA!5e0!3m2!1sen!2sbd!4v1558246953339!5m2!1sen!2sbd" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row pb-30">
+                        <div class="col-lg-12">
+                            <div class="contact-service">
+                                <img src="{{ listing.realtor.photo.url }}" alt="">
+                                <p>Listed by</p>
+                                <h5>{{ listing.realtor }}</h5>
+                                <table>
+                                    
+                                    <tr>
+                                        <td>Mobile : <span>{{listing.realtor.phone }}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email : <span>{{ listing.realtor.email }}</span></td>
+                                    </tr>
+                                
+                                </table>
+                                <a href="#" class="site-btn list-btn">View More Listings</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="room-items">
+                                <div class="room-img set-bg" data-setbg="img/rooms/4.jpg">
+                                    <a href="#" class="room-content">
+                                        <i class="flaticon-heart"></i>
+                                    </a>
+                                </div>
+                                <div class="room-text">
+                                    <div class="room-details">
+                                        <div class="room-title">
+                                            <h5>Country Style House with beautiful garden and terrace</h5>
+                                            <a href="#"><i class="flaticon-placeholder"></i> <span>Location</span></a>
+                                            <a href="#" class="large-width"><i class="flaticon-cursor"></i> <span>Show
+                                                    on Map</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="room-features">
+                                        <div class="room-info">
+                                            <div class="size">
+                                                <p>Lot Size</p>
+                                                <img src="img/rooms/size.png" alt="">
+                                                <i class="flaticon-bath"></i>
+                                                <span>2561 sqft</span>
+                                            </div>
+                                            <div class="beds">
+                                                <p>Beds</p>
+                                                <img src="img/rooms/bed.png" alt="">
+                                                <span>9</span>
+                                            </div>
+                                            <div class="baths">
+                                                <p>Baths</p>
+                                                <img src="img/rooms/bath.png" alt="">
+                                                <span>2</span>
+                                            </div>
+                                            <div class="garage">
+                                                <p>Garage</p>
+                                                <img src="img/rooms/garage.png" alt="">
+                                                <span>1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-price">
+                                        <p>For Sale</p>
+                                        <span>$345,000</span>
+                                    </div>
+                                    <a href="#" class="site-btn btn-line">View Property</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Single Property Deatails Section End -->
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %} 
+{% load static %}  
+{% load humanize %} 
+{% block content %}
+<!-- Hotel Room Section Begin -->
+<section class="hotel-rooms spad-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 p-45">
+                <div class="found-items">
+                    <h4>We found <span>{{ count }}</span> properties</h4>
+                    <select class="date-select">
+                        <option value="0">Date New to Old</option>
+                        <option value="1">Old</option>
+                        <option value="2">New</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        {% if listings %}
+            {% for listing in listings %}
+            <div class="col-lg-4 col-md-4 col-md-6">
+                <div class="room-items">
+                    <div class="room-img set-bg" data-setbg="{{ listing.photo_main.url }}">
+                        <a href="#" class="room-content">
+                            <i class="flaticon-heart"></i>
+                        </a>
+                    </div>
+                    <div class="room-text">
+                        <div class="room-details">
+                            <div class="room-title">
+                                <h5>{{ listing.title }}</h5>
+                            </div>
+                            
+                        </div>
+                        <div class="room-features">
+                        <div class="room-info">
+                            <div class="size">
+                                <p>City</p>
+                                <img src="{% static 'img/rooms/city.png' %}" width="24" height="24">
+                                <i class="flaticon-bath"></i>
+                                <span>{{listing.city}}</span>
+                            </div></div>
+                    </div>
+                        <div class="room-features">
+                            <div class="room-info">
+                                <div class="size">
+                                    <p>Lot Size</p>
+                                    <img src="{% static 'img/rooms/size.png' %}" alt="">
+                                    <i class="flaticon-bath"></i>
+                                    <span>{{listing.sqft}}</span>
+                                </div>
+                                <div class="beds">
+                                    <p>Beds</p>
+                                    <img src="{% static 'img/rooms/bed.png' %}" alt="">
+                                    <span>{{listing.bedrooms}}</span>
+                                </div>
+                                <div class="baths">
+                                    <p>Baths</p>
+                                    <img src="{% static 'img/rooms/bath.png' %}" alt="">
+                                    <span>{{listing.bathrooms}}</span>
+                                </div>
+                                <div class="garage">
+                                    <p>Garage</p>
+                                    <img src="{% static 'img/rooms/garage.png' %}" alt="">
+                                    <span>{{listing.garage}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="room-price">
+                            <p>For Sale</p>
+                            <span>{{listing.price | intcomma}} AED </span>
+                        </div>
+                        
+                        <a href="{% url 'listings' %}{{listing.id}}" class="site-btn btn-line">View Property</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+
+        {% endif %}
+        
+           
+    
+        </div>
+    </div>
+</section>
+<!-- Hotel Room Section End -->
+{% endblock %}

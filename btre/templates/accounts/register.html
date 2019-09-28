@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<hr>
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<form action="{% url 'register' %}" method="post">
+        <p align='center' >
+        {% csrf_token %}
+        <input type="text" name="firstname" id="" placeholder="First name">
+        <br>
+        <input type="text" name="lastname" id="" placeholder="Last name">
+        <br>
+        <input type="email" name="email" id="" placeholder="Email">
+        <br>
+        <input type="text" name="username" id="" placeholder="Username">
+        <br>
+        <input type="password" name="password" id="" placeholder="Pawwsord">
+        <br>
+        <input type="password" name="repassword" id="" placeholder="Re-Pawwsord">
+        <br><br>
+        <input type="submit" value="Register">
+</form>
+<hr>
+</p>
+
+{% endblock %}
